@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/QuestNPC.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/CubeGreen.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=3]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 24.0
+bottom_radius = 21.0
+height = 15.0
+
+[node name="QuestNPC" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -12.0457, -15.8543, 12.0335, -15.9896, 15.8212, -12.0666, 15.9565, 12.0126, 11.8982, 15.9356, -12.0457, 15.8003, -15.8334, 12.0126, -15.8334, -12.0666 )
+
+[node name="Exclamation" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.737255 )
+margin_left = -7.37657
+margin_top = -44.5668
+margin_right = 2.62343
+margin_bottom = -23.5668
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.984314, 0.027451, 0.027451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "!"
+
+[node name="Paranthesis" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.478431 )
+margin_left = -9.11272
+margin_top = -36.5411
+margin_right = 20.8873
+margin_bottom = -15.5411
+rect_scale = Vector2( 0.65, 0.75 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "[ ]"
+
+[node name="TalkBalloon" type="MeshInstance2D" parent="."]
+modulate = Color( 0.441406, 0.42244, 0.42244, 0.478431 )
+position = Vector2( 0, -47.4229 )
+mesh = SubResource( 1 )
+
+[node name="Talk" type="Label" parent="."]
+margin_left = -512.323
+margin_top = -57.6276
+margin_right = 511.677
+margin_bottom = -36.6276
+rect_pivot_offset = Vector2( 512.296, 10.1843 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1

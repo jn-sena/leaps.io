@@ -1,0 +1,335 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/GUI/StaminaMeterFull.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GUI/StaminaMeter.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GUI/XPBarFull.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GUI/XPBarLevelFull.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GUI/XPBar.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=7]
+[ext_resource path="res://Assets/GUI/HealthMeterFull.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GUI/HealthMeter.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GUI/SkillFrame.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Skill.gd" type="Script" id=11]
+[ext_resource path="res://Assets/GUI/InventoryFrameSelection.png" type="Texture" id=12]
+[ext_resource path="res://Assets/GUI/SkillFrameCoolProg.png" type="Texture" id=13]
+[ext_resource path="res://Assets/GUI/SkillFrameCoolProgRight.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Assets/GUI/Save.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/Save.gd" type="Script" id=17]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 8.38869
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="StaminaBar" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -127.975
+margin_top = -51.0589
+margin_right = 128.025
+margin_bottom = 76.9411
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Progress" type="TextureProgress" parent="StaminaBar"]
+margin_right = 256.0
+margin_bottom = 128.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+fill_mode = 1
+
+[node name="Bar" type="TextureRect" parent="StaminaBar"]
+margin_right = 256.0
+margin_bottom = 128.0
+texture = ExtResource( 3 )
+
+[node name="XPBar" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -109.472
+margin_top = -51.6478
+margin_right = 326.528
+margin_bottom = 76.3522
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="Progress" type="TextureProgress" parent="XPBar"]
+margin_right = 436.0
+margin_bottom = 128.0
+max_value = 250.0
+texture_progress = ExtResource( 4 )
+fill_mode = 6
+
+[node name="LevelProgress" type="TextureProgress" parent="XPBar"]
+margin_right = 436.0
+margin_bottom = 128.0
+max_value = 11.0
+texture_progress = ExtResource( 5 )
+fill_mode = 6
+
+[node name="Bar" type="TextureRect" parent="XPBar"]
+margin_right = 436.0
+margin_bottom = 128.0
+texture = ExtResource( 6 )
+
+[node name="HealthBar" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -0.111069
+margin_top = -51.4255
+margin_right = 255.889
+margin_bottom = 76.5749
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 7 )
+
+[node name="Progress" type="TextureProgress" parent="HealthBar"]
+margin_right = 256.0
+margin_bottom = 128.0
+value = 100.0
+texture_progress = ExtResource( 8 )
+
+[node name="Bar" type="TextureRect" parent="HealthBar"]
+margin_right = 256.0
+margin_bottom = 128.0
+texture = ExtResource( 9 )
+
+[node name="LastIt" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -0.27739
+margin_top = -59.3436
+margin_right = 39.7226
+margin_bottom = -19.3436
+rect_scale = Vector2( 1.5, 1.5 )
+
+[node name="SkillsPart1" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -266.767
+margin_top = -21.0
+margin_right = -220.767
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 22.0409, 20.9409 )
+
+[node name="Frame" type="TextureRect" parent="SkillsPart1"]
+margin_right = 46.0
+margin_bottom = 21.0
+texture = ExtResource( 10 )
+
+[node name="Skill0" type="Area2D" parent="SkillsPart1"]
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="Selected" type="TextureRect" parent="SkillsPart1/Skill0"]
+visible = false
+margin_left = 3.1631
+margin_top = 3.14423
+margin_right = 43.1631
+margin_bottom = 43.1442
+texture = ExtResource( 12 )
+
+[node name="Cooldown" type="TextureProgress" parent="SkillsPart1/Skill0"]
+margin_right = 46.0
+margin_bottom = 21.0
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+
+[node name="Skill" type="TextureRect" parent="SkillsPart1/Skill0"]
+margin_left = 3.24072
+margin_top = 1.97086
+margin_right = 19.2407
+margin_bottom = 17.9709
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillsPart1/Skill0"]
+position = Vector2( 10.942, 10.7171 )
+shape = SubResource( 1 )
+
+[node name="Skill1" type="Area2D" parent="SkillsPart1"]
+editor/display_folded = true
+position = Vector2( 23.9079, 0 )
+script = ExtResource( 11 )
+
+[node name="Selected" type="TextureRect" parent="SkillsPart1/Skill1"]
+visible = false
+margin_left = 3.1631
+margin_top = 3.14423
+margin_right = 43.1631
+margin_bottom = 43.1442
+texture = ExtResource( 12 )
+
+[node name="Cooldown" type="TextureProgress" parent="SkillsPart1/Skill1"]
+margin_left = 1.25912
+margin_right = 47.2591
+margin_bottom = 21.0
+texture_progress = ExtResource( 14 )
+fill_mode = 3
+
+[node name="Skill" type="TextureRect" parent="SkillsPart1/Skill1"]
+margin_left = 3.24072
+margin_top = 1.97086
+margin_right = 19.2407
+margin_bottom = 17.9709
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillsPart1/Skill1"]
+position = Vector2( 10.942, 10.7171 )
+shape = SubResource( 1 )
+
+[node name="Labels" type="Control" parent="SkillsPart1"]
+editor/display_folded = true
+margin_right = 46.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="SkillsPart1/Labels"]
+margin_left = 14.3347
+margin_top = 10.7317
+margin_right = 60.3347
+margin_bottom = 31.7317
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "1"
+
+[node name="Label2" type="Label" parent="SkillsPart1/Labels"]
+margin_left = 27.802
+margin_top = 10.7317
+margin_right = 73.802
+margin_bottom = 31.7317
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "2"
+
+[node name="SkillsPart2" type="MarginContainer" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 223.699
+margin_top = -21.0
+margin_right = 269.699
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 22.0409, 20.9409 )
+
+[node name="Frame" type="TextureRect" parent="SkillsPart2"]
+margin_right = 46.0
+margin_bottom = 21.0
+texture = ExtResource( 10 )
+
+[node name="Skill2" type="Area2D" parent="SkillsPart2"]
+editor/display_folded = true
+position = Vector2( 0.132874, 0 )
+script = ExtResource( 11 )
+
+[node name="Selected" type="TextureRect" parent="SkillsPart2/Skill2"]
+visible = false
+margin_left = 3.1631
+margin_top = 3.14423
+margin_right = 43.1631
+margin_bottom = 43.1442
+texture = ExtResource( 12 )
+
+[node name="Cooldown" type="TextureProgress" parent="SkillsPart2/Skill2"]
+margin_left = -0.132874
+margin_right = 45.8671
+margin_bottom = 21.0
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+
+[node name="Skill" type="TextureRect" parent="SkillsPart2/Skill2"]
+margin_left = 3.24072
+margin_top = 1.97086
+margin_right = 19.2407
+margin_bottom = 17.9709
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillsPart2/Skill2"]
+position = Vector2( 10.942, 10.7171 )
+shape = SubResource( 1 )
+
+[node name="Skill3" type="Area2D" parent="SkillsPart2"]
+editor/display_folded = true
+position = Vector2( 23.784, 0 )
+script = ExtResource( 11 )
+
+[node name="Selected" type="TextureRect" parent="SkillsPart2/Skill3"]
+visible = false
+margin_left = 3.1631
+margin_top = 3.14423
+margin_right = 43.1631
+margin_bottom = 43.1442
+texture = ExtResource( 12 )
+
+[node name="Cooldown" type="TextureProgress" parent="SkillsPart2/Skill3"]
+margin_left = 0.871704
+margin_right = 46.8717
+margin_bottom = 21.0
+texture_progress = ExtResource( 14 )
+fill_mode = 3
+
+[node name="Skill" type="TextureRect" parent="SkillsPart2/Skill3"]
+margin_left = 3.24072
+margin_top = 1.97086
+margin_right = 19.2407
+margin_bottom = 17.9709
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillsPart2/Skill3"]
+position = Vector2( 10.942, 10.7171 )
+shape = SubResource( 1 )
+
+[node name="Labels" type="Control" parent="SkillsPart2"]
+editor/display_folded = true
+margin_right = 46.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="SkillsPart2/Labels"]
+margin_left = 14.3347
+margin_top = 10.7317
+margin_right = 60.3347
+margin_bottom = 31.7317
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "3"
+
+[node name="Label2" type="Label" parent="SkillsPart2/Labels"]
+margin_left = 26.9476
+margin_top = 10.7317
+margin_right = 72.9476
+margin_bottom = 31.7317
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "4"
+
+[node name="Save" type="TextureProgress" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 64.0081, 0.00911427 )
+value = 100.0
+texture_progress = ExtResource( 16 )
+fill_mode = 8
+script = ExtResource( 17 )
+[connection signal="body_entered" from="SkillsPart1/Skill0" to="SkillsPart1/Skill0" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="SkillsPart1/Skill0" to="SkillsPart1/Skill0" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="SkillsPart1/Skill1" to="SkillsPart1/Skill1" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="SkillsPart1/Skill1" to="SkillsPart1/Skill1" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="SkillsPart2/Skill2" to="SkillsPart2/Skill2" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="SkillsPart2/Skill2" to="SkillsPart2/Skill2" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="SkillsPart2/Skill3" to="SkillsPart2/Skill3" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="SkillsPart2/Skill3" to="SkillsPart2/Skill3" method="_on_Slot_body_exited"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 100.0
+_data = [ Vector2( 0, 100 ), 0.0, 251.882, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Pop" type="CPUParticles2D"]
+emitting = false
+amount = 64
+lifetime = 0.5
+one_shot = true
+preprocess = 1.0
+explosiveness = 1.0
+randomness = 0.37
+emission_shape = 1
+emission_sphere_radius = 3.0
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 75.0
+angular_velocity = 201.29
+linear_accel = 19.35
+radial_accel = 17.0
+tangential_accel = 2.0
+damping = 50.0
+damping_random = 1.0
+damping_curve = SubResource( 1 )
+scale_amount = 3.0
+color = Color( 0.792157, 0.792157, 0.792157, 1 )

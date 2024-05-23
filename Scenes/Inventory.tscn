@@ -1,0 +1,1815 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/GUI/InventoryFrame.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HoveringBody.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Player/CubeBlue.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Items/helmet.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Cursor.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/InventorySlot.gd" type="Script" id=6]
+[ext_resource path="res://Assets/GUI/InventoryFrameSelection.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scripts/Balance.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/DisplaySlot.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Items/feather.png" type="Texture" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.24661
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 7.74183
+
+[node name="Inventory" type="MarginContainer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -71.5
+margin_bottom = 71.5
+
+[node name="InventoryFrame" type="TextureRect" parent="."]
+margin_right = 512.0
+margin_bottom = 143.0
+texture = ExtResource( 1 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, 14.4622 )
+script = ExtResource( 2 )
+
+[node name="PlayerCube" type="Sprite" parent="Player"]
+position = Vector2( 74.9482, 68.2747 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PoolVector2Array( 58.986, 56.3612, 62.9856, 52.2511, 86.9559, 52.3063, 90.9832, 56.3888, 90.9556, 80.2763, 86.9559, 84.276, 62.9856, 84.2484, 58.9859, 80.2763 )
+disabled = true
+
+[node name="Helmet" type="Sprite" parent="Player"]
+position = Vector2( 74.948, 43 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 4 )
+
+[node name="Cursor" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+shape = SubResource( 1 )
+
+[node name="Slot0" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 75.0534, 32.8938 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot0"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot0"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot0"]
+margin_left = 3.09174
+margin_top = -1.18915
+margin_right = 43.0917
+margin_bottom = 38.8109
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot0"]
+shape = SubResource( 2 )
+
+[node name="Slot1" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 75.0534, 32.8938 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot1"]
+visible = false
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot1"]
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+
+[node name="Quantity" type="Label" parent="Slot1"]
+margin_left = 2.79922
+margin_top = 77.8519
+margin_right = 42.7992
+margin_bottom = 117.852
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot1"]
+position = Vector2( -0.548157, 77.7044 )
+shape = SubResource( 2 )
+
+[node name="Slot2" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 112.065, -9.00656 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot2"]
+visible = false
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot2"]
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+
+[node name="Quantity" type="Label" parent="Slot2"]
+margin_left = 2.68039
+margin_top = 78.3797
+margin_right = 42.6804
+margin_bottom = 118.38
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot2"]
+position = Vector2( -0.548157, 77.7044 )
+shape = SubResource( 2 )
+
+[node name="Slot3" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 36.0905, -9.00656 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot3"]
+visible = false
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot3"]
+margin_left = -8.10635
+margin_top = 69.5596
+margin_right = 503.894
+margin_bottom = 212.56
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot3"]
+position = Vector2( -0.548157, 77.7044 )
+shape = SubResource( 2 )
+
+[node name="Quantity" type="Label" parent="Slot3"]
+margin_left = 1.97055
+margin_top = 78.3797
+margin_right = 41.9706
+margin_bottom = 118.38
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Slot4" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 164.006, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot4"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot4"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot4"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot4"]
+shape = SubResource( 2 )
+
+[node name="Slot5" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 184.712, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot5"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot5"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot5"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot5"]
+shape = SubResource( 2 )
+
+[node name="Slot6" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 206.065, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot6"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot6"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot6"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot6"]
+shape = SubResource( 2 )
+
+[node name="Slot7" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 225.801, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot7"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot7"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot7"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot7"]
+shape = SubResource( 2 )
+
+[node name="Slot8" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 246.507, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot8"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot8"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot8"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot8"]
+shape = SubResource( 2 )
+
+[node name="Slot9" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 266.934, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot9"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot9"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot9"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot9"]
+shape = SubResource( 2 )
+
+[node name="Slot10" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 288.097, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot10"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot10"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot10"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot10"]
+shape = SubResource( 2 )
+
+[node name="Slot11" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 308.708, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot11"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot11"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot11"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot11"]
+shape = SubResource( 2 )
+
+[node name="Slot12" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 329.135, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot12"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot12"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot12"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot12"]
+shape = SubResource( 2 )
+
+[node name="Slot13" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 349.561, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot13"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot13"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot13"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot13"]
+shape = SubResource( 2 )
+
+[node name="Slot14" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 370.356, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot14"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot14"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot14"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot14"]
+shape = SubResource( 2 )
+
+[node name="Slot15" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 390.599, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot15"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot15"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot15"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot15"]
+shape = SubResource( 2 )
+
+[node name="Slot16" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 411.394, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot16"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot16"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot16"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot16"]
+shape = SubResource( 2 )
+
+[node name="Slot17" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 432.373, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot17"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot17"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot17"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot17"]
+shape = SubResource( 2 )
+
+[node name="Slot18" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 452.984, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot18"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot18"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot18"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot18"]
+shape = SubResource( 2 )
+
+[node name="Slot19" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 473.779, 55.5952 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot19"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot19"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot19"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot19"]
+shape = SubResource( 2 )
+
+[node name="Slot20" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 159.951, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot20"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot20"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot20"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot20"]
+shape = SubResource( 2 )
+
+[node name="Slot21" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 180.872, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot21"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot21"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot21"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot21"]
+shape = SubResource( 2 )
+
+[node name="Slot22" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 201.212, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot22"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot22"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot22"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot22"]
+shape = SubResource( 2 )
+
+[node name="Slot23" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 221.939, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot23"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot23"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot23"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot23"]
+shape = SubResource( 2 )
+
+[node name="Slot24" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 242.666, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot24"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot24"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot24"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot24"]
+shape = SubResource( 2 )
+
+[node name="Slot25" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 263.2, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot25"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot25"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot25"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot25"]
+shape = SubResource( 2 )
+
+[node name="Slot26" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 283.927, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot26"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot26"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot26"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot26"]
+shape = SubResource( 2 )
+
+[node name="Slot27" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 304.46, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot27"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot27"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot27"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot27"]
+shape = SubResource( 2 )
+
+[node name="Slot28" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 325.187, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot28"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot28"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot28"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot28"]
+shape = SubResource( 2 )
+
+[node name="Slot29" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 345.721, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot29"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot29"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot29"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot29"]
+shape = SubResource( 2 )
+
+[node name="Slot30" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 366.448, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot30"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot30"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot30"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot30"]
+shape = SubResource( 2 )
+
+[node name="Slot31" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 387.175, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot31"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot31"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot31"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot31"]
+shape = SubResource( 2 )
+
+[node name="Slot32" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 407.127, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot32"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot32"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot32"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot32"]
+shape = SubResource( 2 )
+
+[node name="Slot33" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 428.242, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot33"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot33"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot33"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot33"]
+shape = SubResource( 2 )
+
+[node name="Slot34" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 448.581, 75.9736 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot34"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot34"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot34"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot34"]
+shape = SubResource( 2 )
+
+[node name="Slot35" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 155.866, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot35"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot35"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot35"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot35"]
+shape = SubResource( 2 )
+
+[node name="Slot36" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 176.55, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot36"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot36"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot36"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot36"]
+shape = SubResource( 2 )
+
+[node name="Slot37" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 197.235, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot37"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot37"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot37"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot37"]
+shape = SubResource( 2 )
+
+[node name="Slot38" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 217.62, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot38"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot38"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot38"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot38"]
+shape = SubResource( 2 )
+
+[node name="Slot39" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 238.605, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot39"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot39"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot39"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot39"]
+shape = SubResource( 2 )
+
+[node name="Slot40" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 259.14, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot40"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot40"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot40"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot40"]
+shape = SubResource( 2 )
+
+[node name="Slot41" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 279.375, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot41"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot41"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot41"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot41"]
+shape = SubResource( 2 )
+
+[node name="Slot42" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 300.51, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot42"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot42"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot42"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot42"]
+shape = SubResource( 2 )
+
+[node name="Slot43" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 321.045, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot43"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot43"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot43"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot43"]
+shape = SubResource( 2 )
+
+[node name="Slot44" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 341.58, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot44"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot44"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot44"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot44"]
+shape = SubResource( 2 )
+
+[node name="Slot45" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 362.265, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot45"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot45"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot45"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot45"]
+shape = SubResource( 2 )
+
+[node name="Slot46" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 382.799, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot46"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot46"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot46"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot46"]
+shape = SubResource( 2 )
+
+[node name="Slot47" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 403.634, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot47"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot47"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot47"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot47"]
+shape = SubResource( 2 )
+
+[node name="Slot48" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 423.869, 96.7929 )
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="Slot48"]
+visible = false
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+texture = ExtResource( 7 )
+
+[node name="Item" type="TextureRect" parent="Slot48"]
+margin_left = -7.9249
+margin_top = -9.03821
+margin_right = 504.075
+margin_bottom = 133.962
+
+[node name="Quantity" type="Label" parent="Slot48"]
+margin_left = -231.659
+margin_right = 280.341
+margin_bottom = 21.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 19.2729, -0.0556946 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot48"]
+shape = SubResource( 2 )
+
+[node name="Balance" type="Node2D" parent="."]
+position = Vector2( 0, 61 )
+
+[node name="Balance" type="Label" parent="Balance"]
+margin_left = 147.105
+margin_top = 59.4046
+margin_right = 659.105
+margin_bottom = 80.4046
+rect_scale = Vector2( 0.6, 0.6 )
+rect_pivot_offset = Vector2( -0.0299072, -0.111084 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+script = ExtResource( 9 )
+
+[node name="DisplaySlot" type="Area2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisplaySlot"]
+position = Vector2( 135.514, 16.2404 )
+shape = SubResource( 3 )
+
+[node name="Item" type="Sprite" parent="DisplaySlot"]
+position = Vector2( 135.561, 15.3636 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="Name" type="Label" parent="DisplaySlot"]
+margin_left = 143.0
+margin_top = 7.0
+margin_right = 213.0
+margin_bottom = 28.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Feather"
+
+[node name="Description" type="Label" parent="DisplaySlot"]
+margin_left = 137.756
+margin_top = 22.631
+margin_right = 317.756
+margin_bottom = 43.631
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "A crafting material."
+[connection signal="body_entered" from="Slot0" to="Slot0" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot0" to="Slot0" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot1" to="Slot1" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot1" to="Slot1" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot2" to="Slot2" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot2" to="Slot2" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot3" to="Slot3" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot3" to="Slot3" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot4" to="Slot4" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot4" to="Slot4" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot5" to="Slot5" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot5" to="Slot5" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot6" to="Slot6" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot6" to="Slot6" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot7" to="Slot7" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot7" to="Slot7" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot8" to="Slot8" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot8" to="Slot8" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot9" to="Slot9" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot9" to="Slot9" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot10" to="Slot10" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot10" to="Slot10" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot11" to="Slot11" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot11" to="Slot11" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot12" to="Slot12" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot12" to="Slot12" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot13" to="Slot13" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot13" to="Slot13" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot14" to="Slot14" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot14" to="Slot14" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot15" to="Slot15" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot15" to="Slot15" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot16" to="Slot16" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot16" to="Slot16" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot17" to="Slot17" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot17" to="Slot17" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot18" to="Slot18" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot18" to="Slot18" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot19" to="Slot19" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot19" to="Slot19" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot20" to="Slot20" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot20" to="Slot20" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot21" to="Slot21" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot21" to="Slot21" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot22" to="Slot22" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot22" to="Slot22" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot23" to="Slot23" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot23" to="Slot23" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot24" to="Slot24" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot24" to="Slot24" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot25" to="Slot25" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot25" to="Slot25" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot26" to="Slot26" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot26" to="Slot26" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot27" to="Slot27" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot27" to="Slot27" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot28" to="Slot28" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot28" to="Slot28" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot29" to="Slot29" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot29" to="Slot29" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot30" to="Slot30" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot30" to="Slot30" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot31" to="Slot31" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot31" to="Slot31" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot32" to="Slot32" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot32" to="Slot32" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot33" to="Slot33" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot33" to="Slot33" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot34" to="Slot34" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot34" to="Slot34" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot35" to="Slot35" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot35" to="Slot35" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot36" to="Slot36" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot36" to="Slot36" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot37" to="Slot37" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot37" to="Slot37" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot38" to="Slot38" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot38" to="Slot38" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot39" to="Slot39" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot39" to="Slot39" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot40" to="Slot40" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot40" to="Slot40" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot41" to="Slot41" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot41" to="Slot41" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot42" to="Slot42" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot42" to="Slot42" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot43" to="Slot43" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot43" to="Slot43" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot44" to="Slot44" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot44" to="Slot44" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot45" to="Slot45" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot45" to="Slot45" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot46" to="Slot46" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot46" to="Slot46" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot47" to="Slot47" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot47" to="Slot47" method="_on_Slot_body_exited"]
+[connection signal="body_entered" from="Slot48" to="Slot48" method="_on_Slot_body_entered"]
+[connection signal="body_exited" from="Slot48" to="Slot48" method="_on_Slot_body_exited"]

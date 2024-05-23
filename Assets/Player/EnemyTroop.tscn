@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/EnemyTroop.gd" type="Script" id=1]
+[ext_resource path="res://Assets/TargetArrow.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/CubeRed.png" type="Texture" id=3]
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 515
+collision_mask = 515
+script = ExtResource( 1 )
+
+[node name="TargetArrow" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.0243, 0 )
+scale = Vector2( 1, -0.12 )
+texture = ExtResource( 2 )
+offset = Vector2( 140, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -11.9714, -15.9395, -15.8933, -11.9324, -15.9786, 11.8547, -11.9714, 15.9471, 11.9009, 15.9471, 15.9933, 12.0252, 15.908, -11.8471, 11.9009, -15.8543 )

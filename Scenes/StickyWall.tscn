@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 500, 500, 2 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 249.833, 250.213 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.552941, 0.054902, 0.054902, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 500, 10, 2 )
+
+[node name="StickyWall" type="StaticBody2D"]
+
+[node name="Wall" type="MeshInstance2D" parent="."]
+mesh = SubResource( 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="StickUp" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 1, 0, 0.32549 )
+position = Vector2( 0, -245.575 )
+mesh = SubResource( 4 )
+
+[node name="StickLeft" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 1, 0, 0.32549 )
+position = Vector2( -245.575, 0 )
+rotation = 1.5708
+mesh = SubResource( 4 )
+
+[node name="StickDown" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 1, 0, 0.32549 )
+position = Vector2( 0, 245.575 )
+mesh = SubResource( 4 )
+
+[node name="StickRight" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 1, 0, 0.32549 )
+position = Vector2( 245.575, 0 )
+rotation = 1.5708
+mesh = SubResource( 4 )

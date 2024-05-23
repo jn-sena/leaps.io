@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.667, 1 )
+colors = PoolColorArray( 0.972549, 1, 0, 0.737255, 0.972549, 1, 0, 0.478431, 0.972549, 1, 0, 0.0980392 )
+
+[node name="Stamina" type="CPUParticles2D"]
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+randomness = 0.37
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 70.0
+initial_velocity_random = 0.3
+angular_velocity = 278.71
+linear_accel = -2.15
+radial_accel = 10.75
+tangential_accel = 1.0
+scale_amount = 3.0
+color_ramp = SubResource( 1 )

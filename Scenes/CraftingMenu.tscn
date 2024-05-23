@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/DeleteSave.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/CloseCraft.gd" type="Script" id=3]
+[ext_resource path="res://Assets/GUI/CraftThing.png" type="Texture" id=4]
+
+[node name="CraftingMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.490196 )
+margin_left = -706.423
+margin_top = -489.062
+margin_right = 1813.58
+margin_bottom = 1150.94
+texture = ExtResource( 1 )
+
+[node name="Close" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -16.0
+margin_bottom = 16.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 16.1822, -0.0769193 )
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CraftGui" type="TextureRect" parent="."]
+margin_left = 242.374
+margin_top = -145.382
+margin_right = 498.374
+margin_bottom = -17.3823
+rect_rotation = 90.0
+rect_scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
